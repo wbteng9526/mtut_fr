@@ -1,1 +1,4 @@
-# Unimodal Face Classification with Multimodal Training - FG2021
+# Unimodal Face Classification with Multimodal Training
+
+## This is a PyTorch implementation of the following paper:
+## Unimodal Face Classification with Multimodal Training
