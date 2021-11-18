@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-from model import PointNet, EdgeConv, initialize_model, FaceNet, DeepFace, DeepID
+from model import PointNet, EdgeConv, initialize_model
 
 class CMAE(nn.Module):
     def __init__(self, args):
@@ -11,12 +11,6 @@ class CMAE(nn.Module):
         
         if args.model_name in ["resnet", "vgg", "squeezenet"]:
             self.img_encoder = initialize_model(model_name = args.model_name, num_classes = self.args.num_embeddings)
-        elif args.model_name == "FaceNet":
-            self.img_encoder = FaceNet(num_classes = self.args.num_embeddings)
-        elif args.model_name == "DeepFace":
-            self.img_encoder = DeepFace(num_classes = self.args.num_embeddings)
-        elif args.model_name == "DeepID":
-            self.img_encoder = DeepID(num_classes = self.args.num_embeddings)
             
         self.img_fc = nn.Sequential(
             nn.Linear(self.args.num_embeddings, 256),
